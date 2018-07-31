@@ -1,30 +1,61 @@
 - model_class = Article
+
+-#%ul.article-entries.list-group
+  - @articles.each do |article|
+    %li.list-group-item
+      .panel-heading
+        .pull-right{style: 'display: inline-block;'}
+          = l article.created_at
+
+        = link_to  article_path(article) do
+          = article.title
+          - if article.comments_count > 0
+            %i.fa.fa-comments
+            = article.comments_count
+      .panel-body
+        asdfdasfdaskjj
+        asdfdasfdaskjj
+        sdfdasfdaskjj
+
+
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:title)
-      %th= model_class.human_attribute_name(:user_id)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th
+      %th
   %tbody
     - @articles.each do |article|
       %tr
         %td= link_to article.id, article_path(article)
         %td
+
+          -#.pull-right
+            = link_to edit_article_path(article), :class => 'btn btn-default btn-xs', :style => "margin-right: 10px;" do
+              %i.fa.fa-pencil
+            = link_to  article_path(article), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' do
+              %i.fa.fa-remove
           = link_to  article_path(article) do
             = article.title
             - if article.comments_count > 0
               %i.fa.fa-comments
               = article.comments_count
-        %td= article.user
-        %td=l article.created_at
-        %td
-          = link_to edit_article_path(article), :class => 'btn btn-default btn-xs', :style => "margin-right: 10px;" do
-            %i.fa.fa-pencil
-          = link_to  article_path(article), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' do
-            %i.fa.fa-remove
 
+          %font{style:"margin-right: 0px;"}= article.user
+          %time.timeago{datetime: article.created_at.strftime("%Y-%m-%d %H:%M:%S")}
+
+          .list-group{style: "margin-top: 10px; margin-bottom: 5px;margin-right: 20px;"}
+            - article.comments.order("id desc").limit(3).includes(:user).each do |comment|
+              .list-group-item
+                -#%h4.list-group-item-heading test
+                .list-group-item-text
+                  .pull-left{style: "margin-right: 10px;"}
+                    = link_to ":;", style: "margin-right: 0px;" do
+                      = image_tag asset_path('avt.png'), class: 'media-object pull-left', style: "width: 20px;height: 20px;margin-right: 5px;"
+                      = comment.user
+                    = ': '
+
+                  = comment.content
+                  %time.timeago{datetime: comment.created_at.strftime("%Y-%m-%d %H:%M:%S")}
 
 
 = link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary'

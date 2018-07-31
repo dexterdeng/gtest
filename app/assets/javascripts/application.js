@@ -3,11 +3,11 @@
 //= require activestorage
 //= require turbolinks
 //= require twitter/bootstrap
+//= require jquery.timeago
 //= require_tree .
 //= require_self
 
 
 jQuery(document).ready(function() {
-
-
-  });
+   jQuery("time.timeago").timeago();
+});
