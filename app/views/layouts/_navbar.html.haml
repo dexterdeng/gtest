@@ -7,8 +7,8 @@
     -#%a.navbar-brand(href="/") Gfresh
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
-        %li= link_to "文章", articles_path
-        %li= link_to "短博客", posts_path
+        %li{class: params[:controller] == 'articles' ? 'active' : ''}= link_to "文章", articles_path
+        %li{class: params[:controller] == 'posts' ? 'active' : ''}= link_to "短博客", posts_path
 
       %ul.nav.navbar-nav.navbar-right
         - if current_user

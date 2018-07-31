@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_131905) do
+ActiveRecord::Schema.define(version: 2018_07_31_145949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,21 @@ ActiveRecord::Schema.define(version: 2018_07_31_131905) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "comments_count", default: 0
+    t.index ["comments_count"], name: "index_articles_on_comments_count"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "user_id"
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.integer "votes_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -30,6 +44,8 @@ ActiveRecord::Schema.define(version: 2018_07_31_131905) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "comments_count", default: 0
+    t.index ["comments_count"], name: "index_posts_on_comments_count"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

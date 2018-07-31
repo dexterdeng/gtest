@@ -137,6 +137,12 @@ zh:
         one: 有 1 个错误发生导致「%{model}」无法被保存。
         other: 有 %{count} 个错误发生导致「%{model}」无法被保存。
   helpers:
+    links:
+      destroy: '删除'
+      back: '返回'
+      edit: '编辑'
+      new: '新建'
+      cancel: '取消'
     select:
       prompt: 请选择
     submit:

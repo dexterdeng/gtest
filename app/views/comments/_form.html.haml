@@ -1,0 +1,12 @@
+= form_for comment, html: { class: "form form-horizontal comment" } do |f|
+  .media
+    .media-left
+      =  link_to ":;" do
+        = image_tag asset_path('avt.png'), class: 'media-object', style:'width:40px; height: 40px;'
+    .media-body
+      = f.text_area :content, class: 'form-control', required: true
+      = f.hidden_field :commentable_type, class: 'form-control', required: true
+      = f.hidden_field :commentable_id, class: 'form-control', required: true
+      = f.error_span(:content)
+    .media-right
+      = f.submit '发布',class: 'btn btn-primary', style: "height: 54px;"

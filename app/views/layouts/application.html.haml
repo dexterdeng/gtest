@@ -24,11 +24,14 @@
           = yield
         .col-lg-3
           .well.sidebar-nav
-            %h3 Sidebar
+            %h3 统计
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li.nav-header 
+              %li
+                文章数:
+                =  Article.count
+              %li
+                短博数:
+                =  Post.count
       %footer
         %p &copy; gfresh 2018
