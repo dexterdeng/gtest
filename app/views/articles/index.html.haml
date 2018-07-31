@@ -1,23 +1,4 @@
 - model_class = Article
-
--#%ul.article-entries.list-group
-  - @articles.each do |article|
-    %li.list-group-item
-      .panel-heading
-        .pull-right{style: 'display: inline-block;'}
-          = l article.created_at
-
-        = link_to  article_path(article) do
-          = article.title
-          - if article.comments_count > 0
-            %i.fa.fa-comments
-            = article.comments_count
-      .panel-body
-        asdfdasfdaskjj
-        asdfdasfdaskjj
-        sdfdasfdaskjj
-
-
 %table.table.table-striped
   %thead
     %tr
@@ -40,7 +21,7 @@
               %i.fa.fa-comments
               = article.comments_count
 
-          %font{style:"margin-right: 0px;"}= article.user
+          %font{style:"margin-right: 0px;"}= link_to article.user, article.user
           %time.timeago{datetime: article.created_at.strftime("%Y-%m-%d %H:%M:%S")}
 
           .list-group{style: "margin-top: 10px; margin-bottom: 5px;margin-right: 20px;"}
@@ -51,7 +32,7 @@
                   .pull-left{style: "margin-right: 10px;"}
                     = link_to ":;", style: "margin-right: 0px;" do
                       = image_tag asset_path('avt.png'), class: 'media-object pull-left', style: "width: 20px;height: 20px;margin-right: 5px;"
-                      = comment.user
+                      = link_to comment.user, comment.user
                     = ': '
 
                   = comment.content

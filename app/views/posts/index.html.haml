@@ -17,7 +17,7 @@
             - if post.comments_count > 0
               %i.fa.fa-comments
               = post.comments_count
-        %td= post.user
+        %td= link_to post.user, post.user
         %td=l post.created_at
         %td
           = link_to  edit_post_path(post), :class => 'btn btn-default btn-xs', :style => "margin-right: 10px;" do

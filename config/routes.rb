@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
   resources :articles
+  resources :users, :only => [:show]
 
   get "vote" => "votes#toggle"
 
