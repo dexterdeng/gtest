@@ -1,19 +1,9 @@
 - model_class = Article
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
-
+  %h1=  @article.title
+  = @article.user
 %p
-  %strong= model_class.human_attribute_name(:title) + ':'
-  %br
-  = @article.title
-%p
-  %strong= model_class.human_attribute_name(:description) + ':'
-  %br
   = @article.description
-%p
-  %strong= model_class.human_attribute_name(:user_id) + ':'
-  %br
-  = @article.user_id
 
 
 = link_to t('.back', :default => t("helpers.links.back")), articles_path, :class => 'btn btn-default'
