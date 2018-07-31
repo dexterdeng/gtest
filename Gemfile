@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
+gem 'will_paginate-bootstrap'
 gem 'haml-rails'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

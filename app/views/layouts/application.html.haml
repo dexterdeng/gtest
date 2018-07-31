@@ -22,16 +22,17 @@
         .col-lg-9
           = bootstrap_flash
           = yield
-        .col-lg-3
-          .well.sidebar-nav
-            %h3 统计
-            %ul.nav.nav-list
-              %li.nav-header 
-              %li
-                文章数:
-                =  Article.count
-              %li
-                短博数:
-                =  Post.count
+        - if false
+          .col-lg-3
+            .well.sidebar-nav
+              %h3 统计
+              %ul.nav.nav-list
+                %li.nav-header
+                %li
+                  文章数:
+                  =  Article.count
+                %li
+                  短博数:
+                  =  Post.count
       %footer
         %p &copy; gfresh 2018

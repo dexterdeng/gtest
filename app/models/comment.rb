@@ -3,6 +3,8 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :commentable, polymorphic: true
 
+  has_many   :votes, as: :votable
+
   after_create :refresh_comments_count
   after_destroy :refresh_comments_count
 

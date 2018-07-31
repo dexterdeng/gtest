@@ -1,3 +1,27 @@
-// Place all the styles related to the Comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.comments{
+  margin-top: 30px;
+  .media{
+    .media-left{
+      .media-object{
+        width:40px; height: 40px;
+      }
+    }
+    .media-body{
+      .media-content{
+        display: block;
+      }
+      font{
+        color: #aaaaaa; font-size: 13px;
+        .vote{
+          color: #999999;
+          &:hover{
+            color: #333333;
+          }
+        }
+      }
+    }
+  }
+  .pagination{
+    margin: 10px 0px;
+  }
+}

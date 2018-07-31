@@ -1,0 +1,3 @@
+$("#<%= @commentable.class.table_name%>-comments").replaceWith("<%= j render("comments/list", commentable: @commentable )%>");
+$("[name='comment[content]']").val('')
+

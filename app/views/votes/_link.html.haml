@@ -1,0 +1,5 @@
+= link_to vote_path(votable_type: votable.class.name, votable_id: votable.id), remote: true, class: "vote vote_link_#{votable.class.table_name}_#{votable.id}" do
+  %i.fa.fa-heart
+  = votable.votes_count > 0 ?  votable.votes_count : ''
+
+

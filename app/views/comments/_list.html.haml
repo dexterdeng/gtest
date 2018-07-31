@@ -1,14 +1,22 @@
+.comments{id: "#{commentable.class.table_name}-comments"}
 
-- comments.each do |comment|
-  .media
-    .media-left
-      =  link_to ":;" do
-        = image_tag asset_path('avt.png'), class: 'media-object', style:'width:40px; height: 40px;'
-    .media-body
-      -# h4.media-heading
-      %div{style: 'display: block;'}= comment.content
-      %font{style: "color: #999999; font-size: 13px;"}
-        = comment.user
-        = '·'
-        = l comment.created_at
+  - pagination = commentable.comments.includes(:user).paginate :per_page => 10, :page => params[:page]
+  - pagination.each do |comment|
+    .media
+      .media-left
+        =  link_to ":;" do
+          = image_tag asset_path('avt.png'), class: 'media-object'
+      .media-body
+        -# h4.media-heading
+        .media-content= comment.content
+        %font
+          = comment.user
+          = '·'
+          = l comment.created_at
+          = '·'
+          = render "votes/link", :votable => comment
+
+  - if pagination.total_pages > 1
+    .pagination
+      = will_paginate pagination, renderer: BootstrapPagination::Rails
 

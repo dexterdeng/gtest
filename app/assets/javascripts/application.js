@@ -4,3 +4,10 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require_tree .
+//= require_self
+
+
+jQuery(document).ready(function() {
+
+
+  });
