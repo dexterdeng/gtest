@@ -7,13 +7,8 @@
   .form-group
     = f.label :description, class: 'control-label col-lg-2'
     .col-lg-10
-      = f.text_field :description, class: 'form-control', required: true
+      = f.text_area :description, class: 'form-control', required: true
     = f.error_span(:description)
-  .form-group
-    = f.label :user_id, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :user_id, class: 'form-control', required: true
-    = f.error_span(:user_id)
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.submit nil,class: 'btn btn-primary'
