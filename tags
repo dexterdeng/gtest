@@ -1,0 +1,73 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+APP_PATH	bin/rails	/^APP_PATH = File.expand_path('..\/config\/application', __dir__)$/;"	c
+APP_ROOT	bin/setup	/^APP_ROOT = File.expand_path('..', __dir__)$/;"	c
+APP_ROOT	bin/update	/^APP_ROOT = File.expand_path('..', __dir__)$/;"	c
+APP_ROOT	bin/yarn	/^APP_ROOT = File.expand_path('..', __dir__)$/;"	c
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AddNicknameToUsers	db/migrate/20180731114329_add_nickname_to_users.rb	/^class AddNicknameToUsers < ActiveRecord::Migration[5.2]$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Gfresh
+ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
+ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
+ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+ApplicationSystemTestCase	test/application_system_test_case.rb	/^class ApplicationSystemTestCase < ActionDispatch::SystemTestCase$/;"	c
+Article	app/models/article.rb	/^class Article < ApplicationRecord$/;"	c
+ArticleTest	test/models/article_test.rb	/^class ArticleTest < ActiveSupport::TestCase$/;"	c
+ArticlesController	app/controllers/articles_controller.rb	/^class ArticlesController < ApplicationController$/;"	c
+ArticlesControllerTest	test/controllers/articles_controller_test.rb	/^class ArticlesControllerTest < ActionDispatch::IntegrationTest$/;"	c
+ArticlesHelper	app/helpers/articles_helper.rb	/^module ArticlesHelper$/;"	m
+ArticlesTest	test/system/articles_test.rb	/^class ArticlesTest < ApplicationSystemTestCase$/;"	c
+Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
+Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
+CreateArticles	db/migrate/20180731130843_create_articles.rb	/^class CreateArticles < ActiveRecord::Migration[5.2]$/;"	c
+CreatePosts	db/migrate/20180731131905_create_posts.rb	/^class CreatePosts < ActiveRecord::Migration[5.2]$/;"	c
+DeviseCreateUsers	db/migrate/20180731110849_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[5.2]$/;"	c
+Gfresh	config/application.rb	/^module Gfresh$/;"	m
+HomeController	app/controllers/home_controller.rb	/^class HomeController < ApplicationController$/;"	c
+Post	app/models/post.rb	/^class Post < ApplicationRecord$/;"	c
+PostTest	test/models/post_test.rb	/^class PostTest < ActiveSupport::TestCase$/;"	c
+PostsController	app/controllers/posts_controller.rb	/^class PostsController < ApplicationController$/;"	c
+PostsControllerTest	test/controllers/posts_controller_test.rb	/^class PostsControllerTest < ActionDispatch::IntegrationTest$/;"	c
+PostsHelper	app/helpers/posts_helper.rb	/^module PostsHelper$/;"	m
+PostsTest	test/system/posts_test.rb	/^class PostsTest < ApplicationSystemTestCase$/;"	c
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+article_params	app/controllers/articles_controller.rb	/^    def article_params$/;"	f	class:ArticlesController
+articles	app/models/user.rb	/^  has_many :articles$/;"	f
+change	db/migrate/20180731110849_devise_create_users.rb	/^  def change$/;"	f	class:DeviseCreateUsers
+change	db/migrate/20180731114329_add_nickname_to_users.rb	/^  def change$/;"	f	class:AddNicknameToUsers
+change	db/migrate/20180731130843_create_articles.rb	/^  def change$/;"	f	class:CreateArticles
+change	db/migrate/20180731131905_create_posts.rb	/^  def change$/;"	f	class:CreatePosts
+configure_permitted_parameters	app/controllers/application_controller.rb	/^  def configure_permitted_parameters$/;"	f	class:ApplicationController
+create	app/controllers/articles_controller.rb	/^  def create$/;"	f	class:ArticlesController
+create	app/controllers/posts_controller.rb	/^  def create$/;"	f	class:PostsController
+destroy	app/controllers/articles_controller.rb	/^  def destroy$/;"	f	class:ArticlesController
+destroy	app/controllers/posts_controller.rb	/^  def destroy$/;"	f	class:PostsController
+edit	app/controllers/articles_controller.rb	/^  def edit$/;"	f	class:ArticlesController
+edit	app/controllers/posts_controller.rb	/^  def edit$/;"	f	class:PostsController
+index	app/controllers/articles_controller.rb	/^  def index$/;"	f	class:ArticlesController
+index	app/controllers/home_controller.rb	/^  def index$/;"	f	class:HomeController
+index	app/controllers/posts_controller.rb	/^  def index$/;"	f	class:PostsController
+new	app/controllers/articles_controller.rb	/^  def new$/;"	f	class:ArticlesController
+new	app/controllers/posts_controller.rb	/^  def new$/;"	f	class:PostsController
+post_params	app/controllers/posts_controller.rb	/^    def post_params$/;"	f	class:PostsController
+posts	app/models/user.rb	/^  has_many :posts$/;"	f
+set_article	app/controllers/articles_controller.rb	/^    def set_article$/;"	f	class:ArticlesController
+set_post	app/controllers/posts_controller.rb	/^    def set_post$/;"	f	class:PostsController
+show	app/controllers/articles_controller.rb	/^  def show$/;"	f	class:ArticlesController
+show	app/controllers/posts_controller.rb	/^  def show$/;"	f	class:PostsController
+system!	bin/setup	/^def system!(*args)$/;"	f
+system!	bin/update	/^def system!(*args)$/;"	f
+to_s	app/models/user.rb	/^  def to_s$/;"	f	class:User
+update	app/controllers/articles_controller.rb	/^  def update$/;"	f	class:ArticlesController
+update	app/controllers/posts_controller.rb	/^  def update$/;"	f	class:PostsController
+user	app/models/article.rb	/^  belongs_to :user$/;"	f
+user	app/models/post.rb	/^  belongs_to :user$/;"	f
