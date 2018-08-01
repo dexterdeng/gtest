@@ -1,5 +1,5 @@
 
-= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary pull-right', style: "margin-left: 10px;"
+= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary pull-right mr10'
 .dropdown.pull-right
   %button.btn.btn-default.dropdown-toggle{id: 'dropdownMenu1', type: 'button', 'data-toggle': 'dropdown', 'aira-haspopup': 'true', 'aria-expanded': true}
     = {'comments_count'  => '按评论数排序'}[params[:sort]] || '按时间排序'
@@ -20,28 +20,22 @@
       %tr
         %td= link_to article.id, article_path(article)
         %td
-
-          -#.pull-right
-            = link_to edit_article_path(article), :class => 'btn btn-default btn-xs', :style => "margin-right: 10px;" do
-              %i.fa.fa-pencil
-            = link_to  article_path(article), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' do
-              %i.fa.fa-remove
           = link_to  article_path(article) do
             = article.title
             - if article.comments_count > 0
               %i.fa.fa-comments
               = article.comments_count
 
-          %font{style:"margin-right: 0px;"}= link_to article.user, article.user
+          %font.mr0= link_to article.user, article.user
           %time.timeago{datetime: article.created_at.strftime("%Y-%m-%d %H:%M:%S %z")}
 
-          .list-group{style: "margin-top: 10px; margin-bottom: 5px;margin-right: 20px;"}
+          .list-group.mt10.mb5.mr20
             - (article.top3_comments || []).each do |comment|
               .list-group-item
                 .list-group-item-text
-                  .pull-left{style: "margin-right: 10px;"}
-                    = link_to ":;", style: "margin-right: 0px;" do
-                      = image_tag asset_path('avt.png'), class: 'media-object pull-left', style: "width: 20px;height: 20px;margin-right: 5px;"
+                  .pull-left.mr10
+                    = link_to ":;", class: 'mr0' do
+                      = image_tag asset_path('avt.png'), class: 'media-object pull-left mr5', style: "width: 20px;height: 20px;"
                       = link_to comment.user, comment.user
                     = ': '
 
