@@ -26,3 +26,7 @@
             %i.fa.fa-remove
 
 = link_to t('.new', :default => t("helpers.links.new")), new_post_path, :class => 'btn btn-primary'
+
+- if @posts.total_pages > 1
+  .pagination
+    = will_paginate @posts, renderer: BootstrapPagination::Rails

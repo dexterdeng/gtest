@@ -6,7 +6,14 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article
+    if params[:sort] == 'comments_count'
+      @articles = @articles.order("comments_count desc")
+    else
+      @articles = @articles.order("id desc")
+    end
+    @articles = @articles.includes(:user).paginate page: params[:page], :per_page => 10
+    @articles = Article.attach_recent_3_comments(@articles)
   end
 
   # GET /articles/1

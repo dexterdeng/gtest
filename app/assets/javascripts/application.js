@@ -8,6 +8,6 @@
 //= require_self
 
 
-jQuery(document).ready(function() {
+$(document).on("turbolinks:load", function() {
    jQuery("time.timeago").timeago();
 });

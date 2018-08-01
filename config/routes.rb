@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
   resources :comments
   resources :posts
   resources :articles
-  resources :users, :only => [:show]
 
   get "vote" => "votes#toggle"
+  get 'users/:id' => 'users#show', as: :user
 
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "articles#index"
-  # home#index"
+  root to: "home#index"
+
 end

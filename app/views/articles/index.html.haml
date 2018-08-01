@@ -1,3 +1,14 @@
+
+= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary pull-right', style: "margin-left: 10px;"
+.dropdown.pull-right
+  %button.btn.btn-default.dropdown-toggle{id: 'dropdownMenu1', type: 'button', 'data-toggle': 'dropdown', 'aira-haspopup': 'true', 'aria-expanded': true}
+    = {'comments_count'  => '按评论数排序'}[params[:sort]] || '按时间排序'
+    %span.caret
+  %ul.dropdown-menu{'aria-labelledby': 'dropdownMenu1'}
+    %li=link_to "按时间排序", articles_path
+    %li=link_to "按评论数排序", articles_path(sort: 'comments_count')
+
+
 - model_class = Article
 %table.table.table-striped
   %thead
@@ -22,12 +33,11 @@
               = article.comments_count
 
           %font{style:"margin-right: 0px;"}= link_to article.user, article.user
-          %time.timeago{datetime: article.created_at.strftime("%Y-%m-%d %H:%M:%S")}
+          %time.timeago{datetime: article.created_at.strftime("%Y-%m-%d %H:%M:%S %z")}
 
           .list-group{style: "margin-top: 10px; margin-bottom: 5px;margin-right: 20px;"}
-            - article.comments.order("id desc").limit(3).includes(:user).each do |comment|
+            - (article.top3_comments || []).each do |comment|
               .list-group-item
-                -#%h4.list-group-item-heading test
                 .list-group-item-text
                   .pull-left{style: "margin-right: 10px;"}
                     = link_to ":;", style: "margin-right: 0px;" do
@@ -36,7 +46,10 @@
                     = ': '
 
                   = comment.content
-                  %time.timeago{datetime: comment.created_at.strftime("%Y-%m-%d %H:%M:%S")}
+                  %time.timeago{datetime: comment.created_at.strftime("%Y-%m-%d %H:%M:%S %z")}
 
 
-= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary'
+
+- if @articles.total_pages > 1
+  .pagination
+    = will_paginate @articles, renderer: BootstrapPagination::Rails

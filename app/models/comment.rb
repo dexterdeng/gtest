@@ -1,5 +1,7 @@
 class Comment < ApplicationRecord
 
+  attr_accessor :row_number #用于复杂查询临时存值
+
   belongs_to :user
   belongs_to :commentable, polymorphic: true
 

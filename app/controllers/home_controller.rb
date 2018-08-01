@@ -1,12 +1,7 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
 
   def index
-    respond_to do |format|
-      format.html do
-        render :layout => 'application'
-      end
-    end
+    redirect_to articles_path and return if current_user
   end
 
 end
