@@ -1,6 +1,6 @@
 
 = link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary pull-right mr10'
-.dropdown.pull-right
+.dropdown.pull-right.mr10
   %button.btn.btn-default.dropdown-toggle{id: 'dropdownMenu1', type: 'button', 'data-toggle': 'dropdown', 'aira-haspopup': 'true', 'aria-expanded': true}
     = {'comments_count'  => '按评论数排序'}[params[:sort]] || '按时间排序'
     %span.caret
